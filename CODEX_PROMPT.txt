@@ -1,0 +1,42 @@
+Create a new PUBLIC GitHub repository/project named `GoPilotGit` using the files in this package as the entire initial repository.
+
+This is a public showcase/documentation repository for a commercial Android app named GoPilot. The production app source must remain private.
+
+Before doing anything, read `AGENTS.md`, `PUBLIC_REPO_BOUNDARY.md`, `SECURITY.md`, and `SANITIZATION_REPORT.md`. Treat them as hard requirements.
+
+Goals:
+- Make the GitHub repository look polished and professional.
+- Use `README.md` as the main landing page.
+- Keep the existing GoPilot public-safe graphics.
+- Use `assets/social-preview.png` as the repository social preview if your GitHub capabilities allow it.
+- Keep issue templates, PR template, documentation, safety workflow, and public Pages site.
+- If possible, enable GitHub Pages from `docs/site/`.
+- If possible, enable GitHub Private Vulnerability Reporting.
+- Verify all internal Markdown links and image paths.
+- Run the repository safety workflow or equivalent checks before the first commit.
+- Commit the package as the initial public repository state with a clean commit message.
+- Do not add app source code just to make the repository look more technical.
+- Do not add APK/AAB binaries.
+- Do not invent store URLs, pricing, release dates, user counts, ratings, or iOS availability.
+- iOS must remain described only as "in progress" unless I explicitly tell you otherwise.
+- Keep GoPilot positioned for truckers, hotshots, owner-operators, small fleets, and pilot/escort workflows — not only pilot cars.
+- Keep the official-permit verification disclaimer prominent.
+
+Absolute security rules:
+- NEVER commit Flutter `lib/`, Android `android/`, iOS `ios/`, or other production platform source.
+- NEVER commit API keys, tokens, credentials, service-account JSON, Firebase/Google service configuration, signing files, keystores, certificates, `.env` files, private endpoints, raw internal logs, local filesystem paths, device identifiers, real permits, invoices, receipts, customer information, location history, or any other PII.
+- Do not weaken `.gitignore`, `AGENTS.md`, or `.github/workflows/public-repo-safety.yml`.
+- If you encounter any file that might be sensitive, stop and leave it out rather than guessing.
+
+Images:
+- Use only the graphics already included in the package and screenshots I explicitly upload for public use.
+- Any screenshot I upload must be inspected/redacted before commit.
+- Put approved screenshots only in `assets/screenshots/approved/`.
+- Never publish a screenshot showing real permit/customer/payment/account information or credentials.
+
+After creating the repo:
+1. Show me the final repository file tree.
+2. Summarize exactly what you changed.
+3. Confirm that no app source, keys, tokens, signing files, binaries, private logs, or PII were committed.
+4. Tell me what GitHub settings still require me to click manually, if any.
+5. Do not make any additional scope expansion without asking me.

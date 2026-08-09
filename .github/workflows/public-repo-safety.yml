@@ -1,0 +1,96 @@
+name: Public Repository Safety
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  safety:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Block private app source and sensitive files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          forbidden_paths=(
+            "lib"
+            "android"
+            "ios"
+            "macos"
+            "windows"
+            "linux"
+            "web"
+            "integration_test"
+          )
+
+          for path in "${forbidden_paths[@]}"; do
+            if [ -e "$path" ]; then
+              echo "::error::Forbidden private app-source path committed: $path"
+              exit 1
+            fi
+          done
+
+          if find . -type f \( \
+            -name "*.apk" -o \
+            -name "*.aab" -o \
+            -name "*.ipa" -o \
+            -name "*.jks" -o \
+            -name "*.keystore" -o \
+            -name "*.p12" -o \
+            -name "*.pfx" -o \
+            -name "*.pem" -o \
+            -name "google-services.json" -o \
+            -name "GoogleService-Info.plist" -o \
+            -name "key.properties" -o \
+            -name "local.properties" -o \
+            -name ".env" -o \
+            -name ".env.*" \
+          \) -print -quit | grep -q .; then
+            echo "::error::Sensitive/build file detected."
+            find . -type f \( \
+              -name "*.apk" -o -name "*.aab" -o -name "*.ipa" -o \
+              -name "*.jks" -o -name "*.keystore" -o -name "*.p12" -o \
+              -name "*.pfx" -o -name "*.pem" -o \
+              -name "google-services.json" -o \
+              -name "GoogleService-Info.plist" -o \
+              -name "key.properties" -o -name "local.properties" -o \
+              -name ".env" -o -name ".env.*" \
+            \) -print
+            exit 1
+          fi
+
+      - name: Scan text for common credential patterns
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Keep this intentionally conservative and public-repo focused.
+          PATTERN='(AKIA[0-9A-Z]{16}|AIza[0-9A-Za-z_-]{30,}|xox[baprs]-[A-Za-z0-9-]{10,}|gh[pousr]_[A-Za-z0-9]{20,}|-----BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY-----|client_secret[[:space:]]*[:=][[:space:]]*["'\''][^"'\'']{8,}|api[_-]?key[[:space:]]*[:=][[:space:]]*["'\''][^"'\'']{12,}|access[_-]?token[[:space:]]*[:=][[:space:]]*["'\''][^"'\'']{12,})'
+
+          if grep -RInE \
+            --exclude-dir=.git \
+            --exclude='public-repo-safety.yml' \
+            "$PATTERN" .; then
+            echo "::error::Possible credential-like material detected."
+            exit 1
+          fi
+
+          echo "No common credential patterns detected."
+
+      - name: Confirm public boundary files exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f PUBLIC_REPO_BOUNDARY.md
+          test -f SECURITY.md
+          test -f AGENTS.md
+          echo "Public repository boundary confirmed."

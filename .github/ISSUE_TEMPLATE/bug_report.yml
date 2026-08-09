@@ -1,0 +1,47 @@
+name: App bug report
+description: Report a GoPilot behavior issue using public-safe information only.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Do not upload real permits, customer data, credentials, invoices, receipts, or private account information.**
+        Use fictional/redacted examples.
+
+  - type: input
+    id: area
+    attributes:
+      label: Feature area
+      placeholder: Permit Reader, Saved Trips, Route Review, etc.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the issue without private data.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: GoPilot version shown in the app
+      placeholder: Example: 1.1.x
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public-data check
+      options:
+        - label: I removed personal, customer, permit, payment, account, and credential information.
+          required: true

@@ -1,0 +1,62 @@
+# Secrets / environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+*.mobileprovision
+*.jks
+*.keystore
+key.properties
+local.properties
+secrets.*
+credentials.*
+service-account*.json
+google-services.json
+GoogleService-Info.plist
+
+# App source — intentionally private
+/lib/
+/android/
+/ios/
+/macos/
+/windows/
+/linux/
+/web/
+/test/
+/integration_test/
+
+# Build outputs / mobile binaries
+*.apk
+*.aab
+*.ipa
+*.app
+/build/
+/release/
+
+# IDE / local machine
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Data / exports
+*.db
+*.sqlite
+*.sqlite3
+*.csv
+*.xlsx
+*.zip
+*.tar
+*.gz
+
+# Backups
+*backup*
+*backups*
