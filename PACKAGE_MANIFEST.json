@@ -2,7 +2,7 @@
   "project": "GoPilotGit",
   "purpose": "Public GoPilot showcase/documentation repository",
   "generated_utc": "2026-08-09T01:01:14Z",
-  "file_count": 41,
+  "file_count": 42,
   "files": {
     ".gitattributes": {
       "sha256": "BE53271F536F849171FC1DDB1DAB13A43C79F5083F8BB892BDE86D2124B1AE95",
@@ -147,6 +147,10 @@
     "docs/TESTING_EVIDENCE.md": {
       "sha256": "AC8B38EB259E9C7F86C82B1D1598E53BB29C7557F2445975B2F95B8A9B6334F5",
       "bytes": 855
+    },
+    "docs/index.html": {
+      "sha256": "E635E49E7BD454B327A0EA5AD45009B76CCC8235ADC77B60D74A3745A96CBCC8",
+      "bytes": 307
     },
     "docs/site/assets/feature-overview.png": {
       "sha256": "8E48912863D58AAE209D95926877E27039011452D56BDDB0DB20B6AF649C39EE",
