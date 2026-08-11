@@ -2,7 +2,7 @@
   "project": "GoPilotGit",
   "purpose": "Public GoPilot showcase/documentation repository",
   "generated_utc": "2026-08-09T01:01:14Z",
-  "file_count": 42,
+  "file_count": 43,
   "files": {
     ".gitattributes": {
       "sha256": "BE53271F536F849171FC1DDB1DAB13A43C79F5083F8BB892BDE86D2124B1AE95",
@@ -152,6 +152,10 @@
       "sha256": "E635E49E7BD454B327A0EA5AD45009B76CCC8235ADC77B60D74A3745A96CBCC8",
       "bytes": 307
     },
+    "docs/privacy-policy.html": {
+      "sha256": "CCB081E22D5F23C8E1D534A3AFD21DC4B49BB4686343B9CE7EF9307F3571B3F5",
+      "bytes": 5139
+    },
     "docs/site/assets/feature-overview.png": {
       "sha256": "8E48912863D58AAE209D95926877E27039011452D56BDDB0DB20B6AF649C39EE",
       "bytes": 69365
@@ -165,8 +169,8 @@
       "bytes": 33657
     },
     "docs/site/index.html": {
-      "sha256": "C21DBC7AAB0C08113D9F0FE7DD034800D7731B36EB9835615ABC58AE8FB697BD",
-      "bytes": 2191
+      "sha256": "CBF9EAD3FB016C44BEA9987D1507F18A9F347215D9F13180DF0F0F0D250F705B",
+      "bytes": 2243
     },
     "docs/site/styles.css": {
       "sha256": "47988ABD034BBCF8ED891BF139E39B898922F72CEFDFE2818F0F6B32B7561283",
